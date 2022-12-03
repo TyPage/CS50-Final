@@ -1,10 +1,13 @@
-<!DOCTYPE html>
+{% extends 'layout.html' %}
 
-<html lang="en">
-    <head>
-        <title>Hello></title>
-    </head>
-    <body>
-        Hello world
-    </body>
-</html>
+{%block title%} Home {%endblock%}
+
+{%block body%} 
+<h1> Search Trials </h1>
+<form method="post">
+    <input type="text" name="condition" placeholder="condition">
+    <button type="submit">Submit</button>       
+</form>
+{{ x }}
+
+ {% endblock %}
