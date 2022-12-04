@@ -1,4 +1,4 @@
-#!/home/typage89/final/venv/bin/python3
+#!/mnt/c/Users/tyler/Projects/final/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

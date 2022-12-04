@@ -10,7 +10,7 @@ def home():
         return render_template("index.html")
     if request.method == "POST":
         condition = request.form.get("condition")
-        search_url = "https://ClinicalTrials.gov/api/query/study_fields?fmt=JSON&expr=%s&fields=NCTId,Condition,BriefTitle" % (condition)
+        search_url = "https://ClinicalTrials.gov/api/query/study_fields?fmt=JSON&expr=%s&max_rnk=2&fields=EnrollmentCount,OutcomeAnalysisPValue,Condition,BriefTitle,EligibilityCriteria" % (condition)
         response=urlopen(search_url)
         data_json = json.loads(response.read())
-        return render_template("index.html", x = data_json)
+        return render_template("results.html", x = data_json)

@@ -3,5 +3,30 @@
 {% block title %}Results{%endblock%}
 
 {%block body%}
-{{ x }}
+<table>
+    <tr>
+        <thead>
+            <th>Title</th>
+            <th>Conditions</th>
+            <th>Eligibility Criteria</th>
+            <th>Enrollment Count</th>
+            <th>p value</th>
+        </thead>
+    </tr>
+    <tbody>
+        {% for row in x.StudyFieldsResponse.StudyFields %}
+        <tr>
+        <td>{{ row['BriefTitle'][0] }}</td>
+        <td>{{ row['Condition'][0] }}</td>
+        <td>
+             {% for line in row['EligibilityCriteria'][0].split("\n") %}
+                {{ line }} 
+            {%endfor%}
+        </td>
+        <td>{{ row['EnrollmentCount'][0] }}</td>
+        <td>{{ row['OutcomeAnalysisPValue'][0] }}</td>
+        </tr>
+        {%endfor%}
+    </tbody>
+</table
 {%endblock%}
