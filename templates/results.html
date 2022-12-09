@@ -18,13 +18,20 @@
         <tr>
         <td>{{ row['BriefTitle'][0] }}</td>
         <td>{{ row['Condition'][0] }}</td>
-        <td>
+        <td><span style="font-size:8.0pt">
              {% for line in row['EligibilityCriteria'][0].split("\n") %}
-                {{ line }} 
+                <div style="margin:1px">{{ line }}</div>
             {%endfor%}
-        </td>
+        </span></td>
         <td>{{ row['EnrollmentCount'][0] }}</td>
-        <td>{{ row['OutcomeAnalysisPValue'][0] }}</td>
+        <td>{% if row['OutcomeAnalysisPValue'] %}
+                {% for line in row['OutcomeAnalysisPValue'] %}
+                    {{ line }}
+                {% endfor %}
+            {% else %}
+                Not available
+            {% endif %}
+        </td>
         </tr>
         {%endfor%}
     </tbody>
